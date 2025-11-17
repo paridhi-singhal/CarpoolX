@@ -1,0 +1,80 @@
+/* Navbar Wrapper */
+.navbar {
+  background-color: #1e40af; /* deep blue */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Container */
+.navbar-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.navbar-logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-logo:hover {
+  color: #facc15; /* yellow hover */
+}
+
+/* Menu */
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Links */
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+  color: #facc15; /* yellow hover */
+}
+.navbar-linkregister:hover{
+  color: #6c82b1;
+}
+/* Button Style (Signup / Logout) */
+.navbar-btn {
+  background-color: #facc15;
+  color: #1e40af;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.navbar-linkregister{
+  background: #facc15;
+  color: #1e40af;
+  font-weight: bold;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-btn:hover {
+  background-color: #fde047;
+}

@@ -1,0 +1,54 @@
+.create-ride-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #f0f4ff, #dbeafe);
+  min-height: calc(100vh - 60px); /* minus navbar */
+}
+
+.create-ride-container h2 {
+  color: #1e40af;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.create-ride-form {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.create-ride-form input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.create-ride-form input:focus {
+  border-color: #1e40af;
+}
+
+.create-ride-form button {
+  background-color: #facc15;
+  color: #1e40af;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-ride-form button:hover {
+  background-color: #fde047;
+}
