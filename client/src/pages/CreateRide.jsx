@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
     <div className="create-ride-container">
               {error && (
         <div className="error-message-container">
-          <p className="error-text">❌ {error}</p>
+          <p className="error-text">{error}</p>
         </div>
       )}
       <h2>Create a New Ride</h2>

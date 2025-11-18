@@ -9,27 +9,35 @@ import rideRoutes from "./routes/rideRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
 
 dotenv.config();
+
 const app = express();
 
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "*", 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 app.use(express.json());
 
-// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/rides", rideRoutes);
 app.use("/api/bookings", bookingRoutes);
 
-let isSynced = false;
+const PORT = process.env.PORT || 5000;
 
-async function initDB() {
-  if (!isSynced) {
-    await sequelize.sync();
-    console.log("DB synced on Vercel");
-    isSynced = true;
-  }
-}
+sequelize
+  .sync()
+  .then(() => {
+    console.log("MySQL Database connected & synced");
 
-export default async function handler(req, res) {
-  await initDB();
-  return app(req, res);
-}
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to sync DB:", err);
+  });
