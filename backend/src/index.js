@@ -18,10 +18,17 @@ app.use("/api/auth", authRoutes);
 app.use("/api/rides", rideRoutes);
 app.use("/api/bookings", bookingRoutes);
 
-const PORT = process.env.PORT || 5000;
+let isSynced = false;
 
-// Sync DB
-sequelize.sync({ alter: true }).then(() => {
-  console.log("MySQL Database connected");
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-});
+async function initDB() {
+  if (!isSynced) {
+    await sequelize.sync();
+    console.log("DB synced on Vercel");
+    isSynced = true;
+  }
+}
+
+export default async function handler(req, res) {
+  await initDB();
+  return app(req, res);
+}
