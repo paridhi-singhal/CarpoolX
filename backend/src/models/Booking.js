@@ -22,10 +22,4 @@ const Booking = sequelize.define(
   }
 );
 
-User.hasMany(Booking, { foreignKey: "userId", onDelete: "CASCADE" });
-Booking.belongsTo(User, { foreignKey: "userId" });
-
-Ride.hasMany(Booking, { foreignKey: "rideId", onDelete: "CASCADE" });
-Booking.belongsTo(Ride, { foreignKey: "rideId" });
-
 export default Booking;

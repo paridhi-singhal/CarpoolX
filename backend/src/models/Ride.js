@@ -11,7 +11,5 @@ const Ride = sequelize.define("Ride", {
   price: { type: DataTypes.FLOAT, allowNull: false },
 });
 
-User.hasMany(Ride, { foreignKey: "driverId" });
-Ride.belongsTo(User, { foreignKey: "driverId" });
 
 export default Ride;
