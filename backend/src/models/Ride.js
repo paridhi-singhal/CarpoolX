@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
-import User from "./User.js";
 
 const Ride = sequelize.define("Ride", {
+  id: {type: DataTypes.INTEGER,primaryKey: true,autoIncrement: true},
   source: { type: DataTypes.STRING, allowNull: false },
   destination: { type: DataTypes.STRING, allowNull: false },
   date: { type: DataTypes.DATEONLY, allowNull: false },

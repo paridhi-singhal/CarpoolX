@@ -3,6 +3,7 @@ import axios from "axios";
 import RideCard from "../components/RideCard";
 import "./SearchRides.css";
 import { use } from "react";
+import API from "../services/api";
 import { useAuth } from "../context/AuthContext";
 
 const SearchRides = () => {
@@ -22,8 +23,10 @@ const SearchRides = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
+    
     try {
-      const res = await axios.get("http://localhost:5000/api/rides", {params: form});
+      
+      const res = await API.get("/rides", { params: form });
       setRides(res.data);
     } catch (err) {
       console.error(err);

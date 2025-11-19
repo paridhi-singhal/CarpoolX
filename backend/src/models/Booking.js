@@ -1,7 +1,5 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/db.js";
-import User from "./User.js";
-import Ride from "./Ride.js";
 
 const Booking = sequelize.define(
   "Booking",
@@ -15,11 +13,7 @@ const Booking = sequelize.define(
       type: DataTypes.ENUM("booked", "completed", "cancelled"),
       defaultValue: "booked",
       allowNull: false,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+    }
+  });
 
 export default Booking;

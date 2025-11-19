@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
+import "./RideCard.css";
+import API from "../services/api";
 
 const RideCard = ({ ride ,onBooked}) => {
   const { user } = useAuth();
 
   const handleBooking = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/bookings", {
+      const res = await API.post("/bookings", {
         rideId: ride.id,
         userId: user.data.id,
       });

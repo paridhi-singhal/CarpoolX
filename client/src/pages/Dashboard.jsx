@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import RideCard from "../components/RideCard";
 import "./Dashboard.css";
 import "../components/RideCard.css";
+import API from "../services/api";
 
 const Dashboard = () => {
   const [rides, setRides] = useState([]);
@@ -17,7 +18,7 @@ const Dashboard = () => {
     // fetch all rides
     const fetchRides = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/rides");
+        const res = await API.get("/rides");
         setRides(res.data);
       } catch (err) {
         setError("Failed to fetch rides");
@@ -29,7 +30,7 @@ const Dashboard = () => {
     // fetch user bookings
     const fetchBookings = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/bookings/${user.data.id}`);
+        const res = await API.get(`/bookings/${user.data.id}`);
         setBookings(res.data);
       } catch (err) {
         setError("Failed to fetch bookings");
@@ -62,7 +63,7 @@ const Dashboard = () => {
   // cancel booking
   const handleCancel = async (bookingId) => {
     try {
-      await axios.put(`http://localhost:5000/api/bookings/cancel/${bookingId}`);
+      await API.put(`/bookings/cancel/${bookingId}`);
       setBookings((prev) =>
         prev.map((b) =>
           b.id === bookingId ? { ...b, status: "cancelled" } : b
